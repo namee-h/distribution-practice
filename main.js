@@ -2,7 +2,7 @@
 const isLocal = window.location.hostname === "localhost";
 const BASE_URL = isLocal
   ? "http://localhost:3000"
-  : "https://jovial-dodol-6d3a89.netlify.app/api;";
+  : "https://jovial-dodol-6d3a89.netlify.app/api";
 
 const sessionValue = sessionStorage.getItem("plantsSessionNumOne");
 const loginButton = document.getElementById("index-login");

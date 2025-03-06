@@ -2,7 +2,7 @@
 const isLocal = window.location.hostname === "localhost";
 const BASE_URL = isLocal
   ? "http://localhost:3000"
-  : "https://jovial-dodol-6d3a89.netlify.app/api;";
+  : "https://jovial-dodol-6d3a89.netlify.app/api";
 
 // 카카오 api 주소검색창 팝업
 

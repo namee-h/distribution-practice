@@ -2,7 +2,7 @@
 const isLocal = window.location.hostname === "localhost";
 const BASE_URL = isLocal
   ? "http://localhost:3000"
-  : "https://jovial-dodol-6d3a89.netlify.app/api;";
+  : "https://jovial-dodol-6d3a89.netlify.app/api";
 
 let inputEmail = document.getElementById("floatingInput");
 let inputPassword = document.getElementById("floatingPassword");
