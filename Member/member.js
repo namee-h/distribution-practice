@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function postMemberData(event) {
+async function postMemberData(event) {
   event.preventDefault();
 
   const nameInput = document.querySelector('input[name="name"]').value.trim();
@@ -54,7 +54,7 @@ function postMemberData(event) {
     update_dat: formattedDate,
   };
 
-  fetch(`${BASE_URL}/members`, {
+  await fetch(`${BASE_URL}/members`, {
     method: "POST",
     body: JSON.stringify(member),
     headers: {
