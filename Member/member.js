@@ -1,3 +1,9 @@
+// 로컬 && 서버리스 주소
+const isLocal = window.location.hostname === "localhost";
+const BASE_URL = isLocal
+  ? "http://localhost:3000"
+  : "https://jovial-dodol-6d3a89.netlify.app/api;";
+
 // 카카오 api 주소검색창 팝업
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -48,7 +54,7 @@ function postMemberData(event) {
     update_dat: formattedDate,
   };
 
-  fetch("http://localhost:3000/members", {
+  fetch(`${BASE_URL}/members`, {
     method: "POST",
     body: JSON.stringify(member),
     headers: {
@@ -62,6 +68,7 @@ function postMemberData(event) {
       return response.json();
     })
     .then((result) => {
+      console.log("✅", result);
       window.location.href = "/Login/login.html";
       alert("회원가입이 완료되었습니다");
     })

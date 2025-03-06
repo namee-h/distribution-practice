@@ -1,10 +1,16 @@
+// 로컬 && 서버리스 주소
+const isLocal = window.location.hostname === "localhost";
+const BASE_URL = isLocal
+  ? "http://localhost:3000"
+  : "https://jovial-dodol-6d3a89.netlify.app/api;";
+
 const sessionValue = sessionStorage.getItem("plantsSessionNumOne");
 const loginButton = document.getElementById("index-login");
 const memberName = document.getElementById("index-member-name");
 
 if (sessionValue !== null) {
   console.log(sessionValue);
-  fetch("http://localhost:3000/members")
+  fetch(`${BASE_URL}/members`)
     .then((response) => response.json())
     .then((data) => {
       const member = data.find((member) => member.id === sessionValue);

@@ -246,6 +246,11 @@ document.addEventListener("DOMContentLoaded", () => {
       plantDescriptionError.textContent = "";
     }
   });
+  // 루트 db.json && 서버리스 주소
+  const isLocal = window.location.hostname === "localhost";
+  const BASE_URL = isLocal
+    ? "http://localhost:3000"
+    : "https://jovial-dodol-6d3a89.netlify.app/api;";
 
   plantForm.addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -307,7 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
         etc: null,
       };
 
-      const plantResponse = await fetch("http://localhost:3000/plants", {
+      const plantResponse = await fetch(`${BASE_URL}/plants`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(plantData),
@@ -330,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
         update_day: new Date().toISOString(),
       };
 
-      const imgResponse = await fetch("http://localhost:3000/images", {
+      const imgResponse = await fetch(`${BASE_URL}/images`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(imgData),
@@ -351,7 +356,7 @@ document.addEventListener("DOMContentLoaded", () => {
         update_day: new Date().toISOString(),
       };
 
-      const waterResponse = await fetch("http://localhost:3000/water", {
+      const waterResponse = await fetch(`${BASE_URL}/water`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(waterData),
